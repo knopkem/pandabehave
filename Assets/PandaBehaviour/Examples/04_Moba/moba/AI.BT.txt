@@ -1,2 +1,2 @@
-tree("Main")
+tree("Root")
 	Succeed
