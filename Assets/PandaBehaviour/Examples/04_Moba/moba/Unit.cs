@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class Unit : MonoBehaviour {
 
     public Definitions.eSide Team;
+    public GameObject _enemy;
     Vector3 _destination;
     NavMeshAgent _agent;
 
@@ -26,6 +27,18 @@ public class Unit : MonoBehaviour {
     void FindBestTarget()
     {
         Debug.Log("Finding new target");
+    }
+
+    [Task]
+    bool SetDestinationEnemy()
+    {
+        bool succeeded = false;
+        if (_enemy != null)
+        {
+            SetDestination(_enemy.transform.position);
+            succeeded = true;
+        }
+        return succeeded;
     }
 
 
